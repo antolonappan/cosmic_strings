@@ -84,10 +84,10 @@ def compute_cl_ell(l_val, G_mu, P, N_k=800):
     prefactor = np.exp(log_prefactor)
     return prefactor * Cl_result / (2.0 * np.pi)
 
-def compute_cls(G_mu, P, N_k=30, l_max=500):
+def compute_cls(G_mu, P, N_k=30, l_max=500, progress_bar=True):
     l_vals = np.arange(2, l_max + 1)
     cl_results = []
-    for l in tqdm(l_vals, desc="Computing C_l", unit="ℓ"):
+    for l in tqdm(l_vals, desc="Computing C_l", unit="ℓ", disable=not progress_bar):
         cl_results.append(compute_cl_ell(l, G_mu, P, N_k=N_k))
     return l_vals, np.array(cl_results)
 
@@ -113,3 +113,10 @@ def compute_cls_mt(G_mu, P, N_k=30, l_max=500, nworkers=None):
             cl_results[idx] = cl_val
 
     return l_vals, cl_results
+
+
+    
+
+
+    
+
