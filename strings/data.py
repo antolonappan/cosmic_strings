@@ -39,7 +39,7 @@ PLANCK18 = _load_spectrum(
 )
 PLANCK13 = _load_spectrum(
     "planck2013_mv.txt",
-    fac_func=lambda L: (2 * np.pi) / (L**2 * (L + 1)**2),
+    fac_func=lambda L: 1e-8 * (2 * np.pi) / (L**2 * (L + 1)**2),
 )
 
 
