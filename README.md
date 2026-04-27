@@ -1,6 +1,6 @@
 # Cosmic Strings
 
-Small utilities for computing a cosmic-string angular power spectrum and loading bundled ACT DR6 and Planck 2018 data.
+Small utilities for computing a cosmic-string angular power spectrum and loading bundled ACT DR6, Planck 2018, and Planck 2013 data.
 
 The repository is usable in two ways:
 
@@ -12,6 +12,7 @@ The repository is usable in two ways:
 - `strings.compute_cl(...)` for computing the model spectrum.
 - `strings.ACTDR6` with attributes `.L`, `.CL`, `.ER`.
 - `strings.PLANCK18` with attributes `.L`, `.CL`, `.ER`.
+- `strings.PLANCK13` with attributes `.L`, `.CL`, `.ER`.
 - Source notebooks under `notebooks/`.
 
 The ACT and Planck spectra are shipped with the code, so imports do not depend on the repository layout once installed.
@@ -36,14 +37,16 @@ pip install -r requirements.txt
 ## Basic Usage
 
 ```python
-from strings import ACTDR6, PLANCK18, compute_cl
+from strings import ACTDR6, PLANCK13, PLANCK18, compute_cl
 
 print(ACTDR6.L[:3])
 print(ACTDR6.CL[:3])
 print(ACTDR6.ER[:3])
+print(PLANCK13.L[:3])
 
 cl_act = compute_cl(8.0e-4, 1.0, ell_arr=ACTDR6.L)
 cl_planck = compute_cl(8.0e-4, 1.0, ell_arr=PLANCK18.L)
+cl_planck13 = compute_cl(8.0e-4, 1.0, ell_arr=PLANCK13.L)
 ```
 
 `ACTDR6.CL` and `ACTDR6.ER` are pre-scaled by
@@ -53,6 +56,12 @@ $$
 $$
 
 and `PLANCK18.CL` and `PLANCK18.ER` are pre-scaled by
+
+$$
+\frac{2\pi}{L^2(L+1)^2}.
+$$
+
+`PLANCK13.CL` and `PLANCK13.ER` use the same pre-scaling,
 
 $$
 \frac{2\pi}{L^2(L+1)^2}.
