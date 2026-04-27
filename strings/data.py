@@ -37,6 +37,10 @@ PLANCK18 = _load_spectrum(
     "planck_TT.txt",
     fac_func=lambda L: (2 * np.pi) / (L**2 * (L + 1)**2),
 )
+PLANCK13 = _load_spectrum(
+    "planck2013_mv.txt",
+    fac_func=lambda L: (2 * np.pi) / (L**2 * (L + 1)**2),
+)
 
 
-__all__ = ["ACTDR6", "PLANCK18"]
+__all__ = ["ACTDR6", "PLANCK18", "PLANCK13"]
