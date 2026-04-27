@@ -61,10 +61,10 @@ $$
 \frac{2\pi}{L^2(L+1)^2}.
 $$
 
-`PLANCK13.CL` and `PLANCK13.ER` use the same pre-scaling,
+`PLANCK13.CL` and `PLANCK13.ER` are pre-scaled by
 
 $$
-\frac{2\pi}{L^2(L+1)^2}.
+10^{-8}\frac{2\pi}{L^2(L+1)^2}.
 $$
 
 ## Project Layout
