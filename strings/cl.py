@@ -64,7 +64,7 @@ def compute_cl_ell(l_val, G_mu, P, N_k=30):
     return prefactor * Cl 
 
 
-def compute_cl(G_mu, P, lmax=2000, ell_arr=None, progress=False, max_workers=None):
+def compute_cl(G_mu, P, lmax=2000, ell_arr=None, progress=False, max_workers=None, N_k=30):
     if ell_arr is None:
         ell = np.arange(2, lmax + 1)
     else:
@@ -72,7 +72,7 @@ def compute_cl(G_mu, P, lmax=2000, ell_arr=None, progress=False, max_workers=Non
     ell = np.asarray(ell)
 
     def _compute_single(l_val):
-        return compute_cl_ell(l_val, G_mu, P)
+        return compute_cl_ell(l_val, G_mu, P, N_k=N_k)
     
     if max_workers is None:
         max_workers = os.cpu_count()

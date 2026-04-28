@@ -7,4 +7,10 @@ def DR6_FACTOR(ell):
     return np.sqrt(ell) * (ell*(ell+1))**2 / (2 * np.pi)
 
 
-__all__ = ["compute_cl", "ACTDR6", "PLANCK18", "PLANCK13", "DR6_FACTOR"]
+__all__ = [
+    "compute_cl",
+    "ACTDR6",
+    "PLANCK18",
+    "PLANCK13",
+    "DR6_FACTOR",
+]
