@@ -2,6 +2,9 @@
 
 __pycache__/
 *.py[cod]
+*.so
+*.dylib
+*.mod
 
 .ipynb_checkpoints/
 
@@ -17,4 +20,3 @@ dist/
 .mypy_cache/
 
 notebooks/plots/
-
