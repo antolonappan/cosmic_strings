@@ -1,5 +1,5 @@
 from .cl import compute_cl
-from .data import ACTDR6, PLANCK13, PLANCK18
+from .data import ACTCOV, ACTDR6, PLANCK13, PLANCK18
 import numpy as np
 
 
@@ -12,5 +12,6 @@ __all__ = [
     "ACTDR6",
     "PLANCK18",
     "PLANCK13",
+    "ACTCOV",
     "DR6_FACTOR",
 ]
