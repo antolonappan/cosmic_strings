@@ -4,6 +4,9 @@ from pathlib import Path
 import numpy as np
 
 
+_ACTDR6_FAC_FUNC = lambda L: (np.sqrt(2) * np.pi) / (L**2 * (L + 1)**2)
+
+
 def _candidate_paths(filename):
     packaged = resources.files("strings") / "_data" / filename
     yield Path(packaged)
@@ -29,9 +32,21 @@ def _load_spectrum(filename, fac_func):
     raise FileNotFoundError(f"Could not find data file: {filename}")
 
 
+def _load_array(filename, ell=None, fac_func=None):
+    for path in _candidate_paths(filename):
+        if path.exists():
+            data = np.load(path)
+            if ell is not None and fac_func is not None:
+                fac = fac_func(ell)
+                return data * np.outer(fac, fac)
+            return data
+
+    raise FileNotFoundError(f"Could not find data file: {filename}")
+
+
 ACTDR6  = _load_spectrum(
     "act_mv.txt",
-    fac_func=lambda L: (np.sqrt(2) * np.pi) / (L**2 * (L + 1)**2),
+    fac_func=_ACTDR6_FAC_FUNC,
 )
 PLANCK18 = _load_spectrum(
     "planck_TT.txt",
@@ -41,6 +56,7 @@ PLANCK13 = _load_spectrum(
     "planck2013_mv.txt",
     fac_func=lambda L: 1e-8 * (2 * np.pi) / (L**2 * (L + 1)**2),
 )
+ACTCOV = _load_array("curl_cov_MV_hybrid.npy", ell=ACTDR6.L, fac_func=_ACTDR6_FAC_FUNC)
 
 
-__all__ = ["ACTDR6", "PLANCK18", "PLANCK13"]
+__all__ = ["ACTDR6", "PLANCK18", "PLANCK13", "ACTCOV"]
