@@ -1,4 +1,18 @@
 module cosmic_strings_cl_mod
+  ! Computes the cosmic-string-induced angular power spectrum C_ell
+  ! using a line-of-sight projection of the string source power.
+  !
+  ! The calculation performs numerical integrals over Fourier
+  ! wavenumber k and comoving distance chi, using Gauss-Legendre
+  ! quadrature and spherical Bessel functions.
+  !
+  ! The model assumes a flat Lambda-CDM background and a scaling
+  ! cosmic-string network characterized by the dimensionless tension
+  ! G*mu and reconnection probability p_rec.
+  !
+  ! Distances are expressed in Mpc, wavenumbers in Mpc^{-1}, and
+  ! H(z)/c in Mpc^{-1}. A C-compatible interface is provided for
+  ! calling the calculation from C or Python.
   use iso_c_binding, only: c_double, c_int
   implicit none
 
