@@ -60,7 +60,3 @@ parameter choices.
 - `n_chi`: Gauss-Legendre nodes in comoving distance.
 - `k_min`, `k_max`: integration bounds for `k`.
 
-## Project Layout
-
-- `strings/`: Python API, compiled estimator wrapper, and build script.
-- `notebooks/`: a single theory power-spectrum notebook.
