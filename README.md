@@ -2,10 +2,6 @@
 
 Utilities for computing the cosmic-string angular power spectrum.
 
-The main branch keeps only the compiled estimator and a single notebook that
-plots theory power spectra. Likelihood scans, posterior summaries, and bundled
-ACT/Planck comparison data have been removed.
-
 ## Quick Start
 
 ```bash
