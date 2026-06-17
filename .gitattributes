@@ -1,1 +1,1 @@
-*.ipynb linguist-generated=true -diff
+*.ipynb linguist-generated=true linguist-vendored=true linguist-detectable=false -diff
