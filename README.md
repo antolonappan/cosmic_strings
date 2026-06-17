@@ -1,6 +1,6 @@
 # Cosmic Strings
 
-Fortran-backed utilities for computing the cosmic-string angular power spectrum.
+Utilities for computing the cosmic-string angular power spectrum.
 
 The main branch keeps only the compiled estimator and a single notebook that
 plots theory power spectra. Likelihood scans, posterior summaries, and bundled
@@ -36,7 +36,7 @@ cl = compute_cl(
 )
 ```
 
-`compute_cl` is Fortran-backed. On the first call it builds
+`compute_cl` uses the compiled estimator. On the first call it builds
 `strings/libcosmic_strings_cl.dylib` with `gfortran` if needed.
 
 You can also build it manually:
