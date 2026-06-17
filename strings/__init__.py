@@ -1,17 +1,8 @@
-from .cl import compute_cl
-from .data import ACTCOV, ACTDR6, PLANCK13, PLANCK18
-import numpy as np
-
-
-def DR6_FACTOR(ell):
-    return np.sqrt(ell) * (ell*(ell+1))**2 / (2 * np.pi)
+from .fortran_backend import build_extension, compute_cl, compute_cl_ell
 
 
 __all__ = [
+    "build_extension",
     "compute_cl",
-    "ACTDR6",
-    "PLANCK18",
-    "PLANCK13",
-    "ACTCOV",
-    "DR6_FACTOR",
+    "compute_cl_ell",
 ]
