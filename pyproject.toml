@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cosmic-strings"
 version = "0.1.0"
-description = "Fortran-backed cosmic string angular power spectrum estimator"
+description = "cosmic string angular power spectrum estimator"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
